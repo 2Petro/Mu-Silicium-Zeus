@@ -3,8 +3,6 @@
   SPDX-License-Identifier: BSD-2-Clause-Patent
 **/
 
-#include <Library/ArmLib.h>
-
 #include "PrePi.h"
 
 VOID
