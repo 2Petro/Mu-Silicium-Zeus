@@ -10,13 +10,7 @@
 ##
 
 [Components]
-  # PrePI
-  SamsungPkg/PrePi/PrePi.inf {
-    <LibraryClasses>
-      NULL|MdeModulePkg/Library/LzmaCustomDecompressLib/LzmaCustomDecompressLib.inf
-  }
-
-  # Custom Exynos Drivers
+  # Custom Drivers
   SamsungPkg/Drivers/ExynosGpioDxe/ExynosGpioDxe.inf
   SamsungPkg/Drivers/ExynosSpeedyDxe/ExynosSpeedyDxe.inf
 

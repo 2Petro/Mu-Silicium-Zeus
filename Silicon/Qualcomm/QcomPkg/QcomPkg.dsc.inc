@@ -27,16 +27,11 @@
   BootSlotLib|QcomPkg/GPLLibrary/BootSlotLib/BootSlotLib.inf
 !endif
   RamPartitionTableLib|QcomPkg/Library/RamPartitionTableLib/RamPartitionTableLib.inf
+
   ConfigurationMapHelperLib|QcomPkg/Library/ConfigurationMapHelperLib/ConfigurationMapHelperLib.inf
 
 [Components]
-  # PrePI
-  QcomPkg/PrePi/PrePi.inf {
-    <LibraryClasses>
-      NULL|MdeModulePkg/Library/LzmaCustomDecompressLib/LzmaCustomDecompressLib.inf
-  }
-
-  # Custom Snapdragon Drivers
+  # Custom Drivers
   QcomPkg/Drivers/ClockSpeedUpDxe/ClockSpeedUpDxe.inf
   QcomPkg/Drivers/DynamicRamDxe/DynamicRamDxe.inf
   QcomPkg/Drivers/DisplayReEnablerDxe/DisplayReEnablerDxe.inf

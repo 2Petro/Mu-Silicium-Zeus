@@ -27,16 +27,10 @@
   AB_SLOT_SUPPORT                = 0
   HAS_BUILD_IN_KEYBOARD          = 0
 
-  #
-  # 0 = SDM660
-  # 1 = SDM636
-  # 2 = SDM630
-  #
-  SOC_TYPE                       = 0
+
 [LibraryClasses]
   DeviceMemoryMapLib|nitrogenPkg/Library/DeviceMemoryMapLib/DeviceMemoryMapLib.inf    # Temporarly solution until i fix lavenders memmap
   DeviceConfigurationMapLib|lavenderPkg/Library/DeviceConfigurationMapLib/DeviceConfigurationMapLib.inf
-  DevicePrePiLib|lavenderPkg/Library/DevicePrePiLib/DevicePrePiLib.inf
 
 [PcdsFixedAtBuild]
   # DDR Start Address

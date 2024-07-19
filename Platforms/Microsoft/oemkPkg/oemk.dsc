@@ -45,7 +45,6 @@
 
 [LibraryClasses]
   DeviceMemoryMapLib|oemkPkg/Library/DeviceMemoryMapLib/DeviceMemoryMapLib.inf
-  DevicePrePiLib|oemkPkg/Library/DevicePrePiLib/DevicePrePiLib.inf
 
 [PcdsFixedAtBuild]
   # DDR Start Address & DDR RAM Size (2 GB)

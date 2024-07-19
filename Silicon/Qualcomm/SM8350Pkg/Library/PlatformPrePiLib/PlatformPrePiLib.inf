@@ -9,9 +9,6 @@
 [Sources]
   PlatformPrePiLib.c
 
-[Sources.AArch64]
-  AArch64/PlatformPrePiLib.S
-
 [Packages]
   ArmPkg/ArmPkg.dec
   MdePkg/MdePkg.dec
@@ -22,7 +19,6 @@
   PcdLib
   IoLib
   ConfigurationMapHelperLib
-  DevicePrePiLib
 
 [FixedPcd]
   gArmTokenSpaceGuid.PcdGicRedistributorsBase
