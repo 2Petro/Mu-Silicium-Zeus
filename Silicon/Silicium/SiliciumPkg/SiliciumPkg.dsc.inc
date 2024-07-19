@@ -8,27 +8,28 @@
 ##
 
 [BuildOptions]
-  *_CLANG*_*_CC_FLAGS = -Wno-unused-const-variable -Wno-sometimes-uninitialized -Wno-unaligned-access -Wno-deprecated-non-prototype -D CLANG
+  *_*_*_CC_FLAGS = -Wno-unused-const-variable -Wno-sometimes-uninitialized -Wno-unaligned-access -Wno-deprecated-non-prototype -D CLANG -D __DEPRECATED_AARCH64_4K_RUNTIME_GRANULARITY
 !if $(TARGET) == DEBUG
-  *_CLANG*_*_CC_FLAGS = -D EFI_DEBUG
+  *_*_*_CC_FLAGS = -D EFI_DEBUG
 !endif
-  #*_CLANGDWARF_ARM_CC_FLAGS = -fno-asynchronous-unwind-tables
-  *_CLANGPDB_AARCH64_CC_FLAGS = -D __DEPRECATED_AARCH64_4K_RUNTIME_GRANULARITY
+  *_*_ARM_CC_FLAGS = -fno-asynchronous-unwind-tables
 
 [BuildOptions.common.EDKII.SEC,BuildOptions.common.EDKII.MM_CORE_STANDALONE]
-  *_CLANGDWARF_*_DLINK_FLAGS = -z common-page-size=0x1000
-  *_CLANGPDB_*_DLINK_FLAGS = /ALIGN:0x1000 /FILEALIGN:0x1000
+  GCC:*_CLANGDWARF_*_DLINK_FLAGS = -z common-page-size=0x1000
+  GCC:*_CLANGPDB_*_DLINK_FLAGS = /ALIGN:0x1000 /FILEALIGN:0x1000
 
 [BuildOptions.common.EDKII.DXE_CORE,BuildOptions.common.EDKII.DXE_DRIVER,BuildOptions.common.EDKII.UEFI_DRIVER,BuildOptions.common.EDKII.UEFI_APPLICATION,BuildOptions.common.EDKII.MM_CORE_STANDALONE,BuildOptions.common.EDKII.MM_STANDALONE]
-  *_CLANGDWARF_*_DLINK_FLAGS = -z common-page-size=0x1000
-  *_CLANGPDB_*_DLINK_FLAGS = /ALIGN:0x1000
+  GCC:*_CLANGDWARF_*_DLINK_FLAGS = -z common-page-size=0x1000
+  GCC:*_CLANGPDB_*_DLINK_FLAGS = /ALIGN:0x1000
 
 [BuildOptions.common.EDKII.DXE_RUNTIME_DRIVER]
-  *_CLANGDWARF_*_DLINK_FLAGS = -z common-page-size=0x1000
-  *_CLANGPDB_*_DLINK_FLAGS = /ALIGN:0x10000
+  GCC:*_CLANGDWARF_ARM_DLINK_FLAGS = -z common-page-size=0x1000
+  GCC:*_CLANGDWARF_AARCH64_DLINK_FLAGS = -z common-page-size=0x10000
+  GCC:*_CLANGPDB_AARCH64_DLINK_FLAGS = /ALIGN:0x10000
+  RVCT:*_*_ARM_DLINK_FLAGS = --scatter $(EDK_TOOLS_PATH)/Scripts/Rvct-Align4K.sct
 
 [BuildOptions.common.EDKII.MM_CORE_STANDALONE,BuildOptions.common.EDKII.MM_STANDALONE]
-  *_CLANGPDB_AARCH64_CC_FLAGS = -mstrict-align
+  GCC:*_*_AARCH64_CC_FLAGS = -mstrict-align -march=armv8-a
 
 [PcdsFixedAtBuild.AArch64]
   gEmbeddedTokenSpaceGuid.PcdPrePiCpuIoSize|44
